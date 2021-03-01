@@ -22,17 +22,20 @@ export default class extends React.PureComponent {
     }
 
     toggleCollapsed = () => {
-        this.setState({
-            collapsed: !this.state.collapsed
-        }, () => {
-            AttributeStore.set(
-                this.props.rjvId,
-                this.props.namespace,
-                'collapsed',
-                this.state.collapsed
-            );
-        });
-    }
+        this.setState(
+            {
+                collapsed: !this.state.collapsed
+            },
+            () => {
+                AttributeStore.set(
+                    this.props.rjvId,
+                    this.props.namespace,
+                    'collapsed',
+                    this.state.collapsed
+                );
+            }
+        );
+    };
 
     isEmailAddress(str) {
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
